@@ -35,3 +35,17 @@ require('mini.surround').setup({
   },
 })
 
+-- harpoon2
+local harpoon = require("harpoon")
+harpoon:setup()
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon Add" })
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon Quick Menu" })
+
+vim.keymap.set("n", "<C-h>h", function() harpoon:list():select(1) end, { desc = "Harpoon Quick 1" })
+vim.keymap.set("n", "<C-h>t", function() harpoon:list():select(2) end, { desc = "Harpoon Quick 2" })
+vim.keymap.set("n", "<C-h>n", function() harpoon:list():select(3) end, { desc = "Harpoon Quick 3" })
+vim.keymap.set("n", "<C-h>s", function() harpoon:list():select(4) end, { desc = "Harpoon Quick 4" })
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-h>j", function() harpoon:list():prev() end, { desc = "Harpoon Previous" })
+vim.keymap.set("n", "<C-h>k", function() harpoon:list():next() end, { desc = "Harpoon Next" })
