@@ -11,6 +11,13 @@ vim.keymap.set("n", "<leader>bn", ":bn<CR>", { noremap = true, desc = "buffer ne
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", { noremap = true, desc = "buffer previous" })
 -- buffer destroy
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, desc = "buffer destroy" })
+-- buffer force destroy
+vim.keymap.set("n", "<leader>bd!", ":bd!<CR>", { noremap = true, desc = "buffer destroy" })
+
+-- terminal open
+vim.keymap.set("n", "<leader>ft", ":ter<CR>", { noremap = true, desc = "terminal" })
+-- terminal return to normal mode
+vim.keymap.set("t","<ESC>","<C-\\><C-n><CR>", { noremap = true, desc = "terminal" })
 
 -- telescope keymaps
 local builtin = require('telescope.builtin')
