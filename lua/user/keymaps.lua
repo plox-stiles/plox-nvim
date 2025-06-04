@@ -1,9 +1,13 @@
+-- quick navigate to config nvim
+vim.keymap.set("n", "<leader><F1>", function()
+		vim.cmd(":tabe " .. vim.fn.stdpath("config")
+		vim.cmd(":tcd " .. vim.fn.stdpath("config")
+	end, { noremap = true })
+
 -- quick write
-vim.keymap.set("n", "<leader>w", ":write<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>w", ":write<CR>", { noremap = true, desc = "write"})
 -- quick quit
-vim.keymap.set("n", "<leader>q", ":quit<CR>", { noremap = true })
--- force quit
-vim.keymap.set("n", "<leader>Q", ":quit!<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>q", ":quit<CR>", { noremap = true, desc = "quit" })
 
 -- buffer next
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", { noremap = true, desc = "buffer next" })
@@ -12,7 +16,9 @@ vim.keymap.set("n", "<leader>bp", ":bp<CR>", { noremap = true, desc = "buffer pr
 -- buffer destroy
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, desc = "buffer destroy" })
 -- buffer force destroy
-vim.keymap.set("n", "<leader>bd!", ":bd!<CR>", { noremap = true, desc = "buffer destroy" })
+vim.keymap.set("n", "<leader>bD", ":bd!<CR>", { noremap = true, desc = "buffer destroy" })
+-- buffer list
+vim.keymap.set("n", "<leader>bl", ":ls<CR>", { noremap = true, desc = "buffer list" })
 
 -- terminal open
 vim.keymap.set("n", "<leader>ft", ":ter<CR>", { noremap = true, desc = "terminal" })
@@ -48,10 +54,10 @@ harpoon:setup()
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon Add" })
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon Quick Menu" })
 
-vim.keymap.set("n", "<C-h>h", function() harpoon:list():select(1) end, { desc = "Harpoon Quick 1" })
-vim.keymap.set("n", "<C-h>t", function() harpoon:list():select(2) end, { desc = "Harpoon Quick 2" })
-vim.keymap.set("n", "<C-h>n", function() harpoon:list():select(3) end, { desc = "Harpoon Quick 3" })
-vim.keymap.set("n", "<C-h>s", function() harpoon:list():select(4) end, { desc = "Harpoon Quick 4" })
+vim.keymap.set("n", "<C-j>h", function() harpoon:list():select(1) end, { desc = "Harpoon Quick 1" })
+vim.keymap.set("n", "<C-j>t", function() harpoon:list():select(2) end, { desc = "Harpoon Quick 2" })
+vim.keymap.set("n", "<C-j>n", function() harpoon:list():select(3) end, { desc = "Harpoon Quick 3" })
+vim.keymap.set("n", "<C->s", function() harpoon:list():select(4) end, { desc = "Harpoon Quick 4" })
 
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-h>j", function() harpoon:list():prev() end, { desc = "Harpoon Previous" })
